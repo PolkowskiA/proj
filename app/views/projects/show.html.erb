@@ -7,13 +7,13 @@
 
 <table>
   <tr>
-  	<th>id</th>
+    <th>id</th>
     <th>status</th>
   </tr>
-  <% if @project.comments.present? %>
-    <% @project.comments.each do |comment| %>
-      <tr>        
-      	<td><%= comment.id %></td>
+  <% if @comments.present? %>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.id %></td>
         <td><%= link_to comment.status, project_comment_path(@project, comment) %></td>
         <td><%= link_to 'Usun', project_comment_path(@project, comment), method: :delete, data: {confirm: 'Are y sure ?'} %></td>
       </tr>
@@ -23,5 +23,6 @@
   <% end %>
 </table>
 
+<%= paginate @comments %>
 
 <%= link_to 'New comment', new_project_comment_path(@project) %>
