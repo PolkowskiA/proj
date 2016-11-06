@@ -1,0 +1,13 @@
+<h1>Editing Project</h1>
+
+<%= form_for @project do |f| %>
+	<%= f.text_field :name %> 
+
+	<%= f.submit %> 
+<% end %>
+
+
+
+
+<%= link_to 'Show', @project %> |
+<%= link_to 'Back', projects_path %>

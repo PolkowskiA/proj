@@ -1,0 +1,30 @@
+<h1>Projects</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Created At</th>
+    <th></th>
+    <th>Updated At</th>
+    <th></th>
+    <%= paginate @projects %>
+  </tr>
+
+  <% if @projects.present? %>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project %></td>
+        <td><%= project.created_at.strftime('%Y-%m-%d') %></td>
+        <td><%= project.created_at.strftime('%T') %></td>
+        <td><%= project.updated_at.strftime('%Y-%m-%d') %></td>
+        <td><%= project.updated_at.strftime('%T') %></td>
+        <!-- <td><%= link_to 'Show', project%></td> -->
+        <td><%= link_to 'Edit', edit_project_path(project) %></td> 
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <em> No Projects Found </em>
+  <% end %>
+</table>
+<%= link_to '------------>Add project<---------------', new_project_path %>
