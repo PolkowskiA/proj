@@ -1,0 +1,371 @@
+body
+{
+  /* Background pattern from Subtle Patterns */
+  background-image: url("img/dark_wood.png");
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: white;
+  margin: 0;
+}
+
+footer
+{
+  background-color: black;
+  text-align: center;
+  padding: 25px;
+}
+
+h1
+{
+  font-size: 40px;
+}
+
+a:link
+{
+  color: white;
+  text-decoration: none;
+}
+
+a:visited
+{
+  color: yellow;
+}
+
+a:hover
+{
+  color: red;
+  text-decoration: underline;
+}
+
+#header
+{
+  height: 100px;
+  margin: 0;
+}
+
+#user_nav
+{
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  top: 20px;  
+  text-align: right;
+}
+
+#header1
+{  
+  margin-top: 26px;
+  font-size: 40px;
+  border: 1px solid white;
+  height: auto;
+  float: left;
+  text-align: center;
+  margin-left: 50px;
+  padding: 10px;
+}
+
+#new_sess_container
+{
+  background-color: grey;
+  width: 300px;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 3px 30px 5px rgba(213,232,178,0.9);
+  -moz-box-shadow: 3px 3px 30px 5px rgba(213,232,178,0.9);
+  box-shadow: 3px 3px 30px 5px rgba(213,232,178,0.9); 
+  color: black;
+}
+
+input[type=text],
+input[type=password]
+{
+  width: 300px;
+  background-color: #efefef;
+  color: #666;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  outline: none;
+  margin-top: 10px;
+}
+
+
+input[type=text]:focus,
+input[type=password]:focus
+{
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+  box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9); 
+  border: 2px solid #a5cda5;
+  background-color: #e9f3e9;
+  color: #428c42;
+}
+
+input[type=submit]
+{
+  width: 300px;
+  background-color: #36b06c;
+  font-size: 20px;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  outline: none;
+  margin-top: 20px;
+}
+
+input[type=submit]:focus
+{
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(200,200,200,0.9);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(200,200,200,0.9);
+  box-shadow: 0px 0px 15px 5px rgba(200,200,200,0.9); 
+}
+
+input[type=submit]:hover
+{
+  background-color: #37b93d;
+}
+
+input::-webkit-input-placeholder
+{
+    color: #999;
+}
+input:focus::-webkit-input-placeholder
+{
+    color: #428C42;
+}
+/* Firefox < 19 */
+input:-moz-placeholder
+{
+    color: #999;
+}
+input:focus:-moz-placeholder
+{
+    color: #428C42;
+}
+/* Firefox > 19 */
+input::-moz-placeholder
+{
+    color: #999;
+}
+input:focus::-moz-placeholder
+{
+    color: #428C42;
+}
+/* Internet Explorer 10 */
+input:-ms-input-placeholder
+{
+    color: #999;
+}
+input:focus:-ms-input-placeholder
+{
+    color: #428C42;
+}
+
+#flash_alert
+{
+  text-align: center;
+  color: red;
+  font-size: 48px;
+}
+
+.error_messages
+{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%
+}
+
+.error_messages > h2
+{
+  color: red;
+}
+.error_messages > ul >li
+{
+  text-align: left;
+}
+
+header
+{
+  text-align: center;
+}
+
+#container_new_user
+{
+  text-align: center;
+}
+
+.content
+{  
+  margin-top: 100px;
+  text-align: center;
+}
+
+.project
+{
+  width: 60%;
+  margin-left: 5%;
+  margin-right: 10%;
+  float: left;
+  border: solid 1px white;
+}
+
+.creator
+{
+  width: 10%;
+  margin-right: 5%;
+  float: left;
+  font-size: 100px;
+  color: white;
+}
+
+.project_view
+{
+  width: 30%;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 5%;
+  float: left;
+  text-align: center;
+  font-size: 24px;
+}
+
+.project_data
+{
+  width: 25%;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 5%;
+  text-align: center;
+  clear: both;
+  font-size: 10px;
+}
+
+.project_update
+{
+  width: 10%;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 5%;
+  float: left;
+  text-align: center;
+  font-size: 10px;
+}
+
+.project_icon
+{
+  width: 5%;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 5%;
+  float: left;
+  text-align: center;
+}
+
+
+.project_icon > p
+{
+  font-size: 14px;
+}
+
+.icon-plus-circled, .icon-plus-squared, .icon-plus-squared-alt, .icon-doc-add
+{
+  color: white;
+}
+
+.image
+{
+  display: inline-block;
+  width: 15%;
+  float: left;
+  height: 100%;
+  vertical-align: middle;
+  margin-top: 15px;
+  font-size: 10px;
+}
+
+.headerShowProj
+{
+  width: 50%;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: black;
+}
+
+.showNameContainer
+{
+  text-align: center;
+  width: 100%;
+  height: 60px;
+
+}
+
+
+.showName
+{
+  font-size: 48px;
+  text-align: center;
+  float: left;
+  width: 90%;
+  letter-spacing: 5px;
+}
+
+.showIcon
+{
+  float: left;
+  width: 5%;
+}
+
+.showHeaderBottom
+{
+  height: 25px;
+  clear: both;
+}
+
+.showBack
+{  
+  float: left;
+}
+
+.showCreate
+{
+  font-size: 10px;
+  float: right;
+  margin-top: 15px; 
+  vertical-align: text-bottom;
+}
+
+.contentShowProj
+{
+  background-color: black;
+  width: 80%;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.showImage
+{
+  float: left;
+  margin: 10px 10px 10px 10px;
+}
+
+.showArticle
+{
+  font-size: 18px;
+}
+

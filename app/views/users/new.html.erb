@@ -1,0 +1,56 @@
+<body>
+
+  <% provide(:title, 'Sign up') %>
+
+  <header> 
+
+  <h1>Sign Up</h1>
+
+  </header>
+
+  <%= form_for @user do |f| %>
+
+    <% if @user.errors.any? %>
+
+      <div id="container_new_user">
+
+        <div class="error_messages">
+
+          <h2>Email or/and password are invalid:</h2>
+
+            <ul>
+
+              <% for message in @user.errors.full_messages %>
+
+                <li><%= message %></li>
+
+              <% end %>
+
+            </ul>
+
+        </div> 
+
+    <% end %>  
+
+        <div id="new_sess_container">
+
+          <%= f.text_field :name, placeholder: "Name" %>
+
+          <%= f.text_field :email, placeholder: "Email" %>
+                    
+          <%= f.password_field :password, placeholder: "Password" %>
+
+          <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+       
+          <%= f.submit %>
+
+        </div>
+        <div style="clear: both;"></div>
+
+    </div>
+      
+  <% end %>
+
+      
+
+</body>

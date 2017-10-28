@@ -1,0 +1,16 @@
+<h1>Editing Project</h1>
+
+<%= form_for @project, html: { multipart: true } do |f| %>
+
+  <%= f.text_field :name %>
+
+  <%= f.file_field :image %>
+
+  <%= f.submit %>
+<% end %>
+
+
+
+
+<%= link_to 'Show', @project %> |
+<%= link_to 'Back', projects_path %>
