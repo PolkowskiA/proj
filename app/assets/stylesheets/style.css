@@ -22,11 +22,7 @@ h1
 
 a:link
 {
-<<<<<<< HEAD
   color: white;
-=======
-  color: yellow;
->>>>>>> 0e80d7311c0b7b25923d2d5bf3fc97578f059b7e
   text-decoration: none;
 }
 
@@ -49,21 +45,11 @@ a:hover
 
 #user_nav
 {
-<<<<<<< HEAD
   display: inline-block;
   position: absolute;
   right: 30px;
   top: 20px;  
   text-align: right;
-=======
-  position: absolute;
-  right: 0;
-  text-align: right;
-  width: auto;  
-  margin-top: 20px;
-  margin-right: 50px;
-  text-align: center;
->>>>>>> 0e80d7311c0b7b25923d2d5bf3fc97578f059b7e
 }
 
 #header1
@@ -248,10 +234,7 @@ header
   margin-left: 5%;
   float: left;
   text-align: center;
-<<<<<<< HEAD
   font-size: 24px;
-=======
->>>>>>> 0e80d7311c0b7b25923d2d5bf3fc97578f059b7e
 }
 
 .project_data
@@ -286,16 +269,10 @@ header
   text-align: center;
 }
 
-<<<<<<< HEAD
 
 .project_icon > p
 {
   font-size: 14px;
-=======
-.project_icon > a
-{
-  
->>>>>>> 0e80d7311c0b7b25923d2d5bf3fc97578f059b7e
 }
 
 .icon-plus-circled, .icon-plus-squared, .icon-plus-squared-alt, .icon-doc-add
@@ -311,7 +288,6 @@ header
   height: 100%;
   vertical-align: middle;
   margin-top: 15px;
-<<<<<<< HEAD
   font-size: 10px;
 }
 
@@ -393,6 +369,3 @@ header
   font-size: 18px;
 }
 
-=======
-}
->>>>>>> 0e80d7311c0b7b25923d2d5bf3fc97578f059b7e
