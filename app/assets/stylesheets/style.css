@@ -1,7 +1,7 @@
 body
 {
   /* Background pattern from Subtle Patterns */
-  background-image: url("img/dark_wood.png");
+  background-image: url("img/wood_1.png");
   font-family: 'Lato', sans-serif;
   font-size: 20px;
   color: white;
@@ -210,11 +210,14 @@ header
 
 .project
 {
+  background-image: url("img/dark_wood.png");
   width: 60%;
   margin-left: 5%;
   margin-right: 10%;
   float: left;
-  border: solid 1px white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .creator
@@ -362,10 +365,12 @@ header
 {
   float: left;
   margin: 10px 10px 10px 10px;
+  border: 1px solid black;
 }
 
 .showArticle
 {
   font-size: 18px;
+  float: left;
 }
 
