@@ -115,7 +115,7 @@
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-    </div>
+    </div>    
 
   </div>
 
@@ -125,11 +125,11 @@
       
       <div class="titleComments">
 
-        <em>Commnets</em>
+        <h2> Commnets </h2>
 
       </div>
 
-      <div class="creator">
+      <div class="creator" id="show">
 
         <%= link_to new_project_comment_path(@project) do %>
 
@@ -138,6 +138,29 @@
         <% end %>
 
       </div>
+
+      <div style="clear: both;"></div>
+
+    </div>
+
+    <div class="commentsContent">
+
+      <% if @comments.present? %>
+
+        <% @comments.each do |comment| %>
+
+          <div class="comment">
+
+           <%= comment.user_id %>: <%= comment.status %> 
+
+          </div>
+
+          <div style="clear: both;"></div>
+
+        <% end %>    
+
+      <% end %>
+      
 
     </div>
 

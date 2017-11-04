@@ -1,3 +1,4 @@
+
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all # .page(params[:page]).per(5)
@@ -42,11 +43,9 @@ class ProjectsController < ApplicationController
 
   def project
     @project ||= Project.find(params[:id])
-    # @project ||= current_user.projects.find(params[:id])
   end
 
   def project_params
-#binding.pry;
     params.require(:project).permit(:name, :image)
   end
 end

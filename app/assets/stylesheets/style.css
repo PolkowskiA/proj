@@ -22,7 +22,7 @@ h1
 
 a:link
 {
-  color: white;
+  color: yellow;
   text-decoration: none;
 }
 
@@ -359,6 +359,7 @@ header
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+  padding: 20px;
 }
 
 .showImage
@@ -371,6 +372,38 @@ header
 .showArticle
 {
   font-size: 18px;
-  float: left;
 }
+ .commetsShowProj
+ {
+  background-color: #0D112B;
+  width: 80%;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+ }
 
+ .titleComments
+ {
+  float: left;
+  width: 70%;
+  text-align: center;
+ }
+
+ .creator#show
+ {
+  margin-top: 20px;
+  float: right;
+  font-size: 32px;
+  width: 10%;
+ }
+
+ .comment
+ {
+  float: left;
+  clear: both;
+  text-align: center;
+  border: 1px solid white;
+ }

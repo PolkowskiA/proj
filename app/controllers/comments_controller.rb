@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = project.comments.build(comments_params)
+     binding.pry
+    @comment = project.comments.build(comments_params).merge!(current_user[:user_id])
     if @comment.save
       redirect_to project_comment_path(project, @comment)
     else
