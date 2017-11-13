@@ -1,56 +1,49 @@
-<body>
+<% provide(:title, 'Sign up') %>
 
-  <% provide(:title, 'Sign up') %>
-
-  <header> 
+<header> 
 
   <h1>Sign Up</h1>
 
-  </header>
+</header>
 
-  <%= form_for @user do |f| %>
+<%= form_for @user do |f| %>
 
-    <% if @user.errors.any? %>
+  <% if @user.errors.any? %>
 
-      <div id="container_new_user">
+    <div id="container_new_user">
 
-        <div class="error_messages">
+      <div class="error_messages">
 
-          <h2>Email or/and password are invalid:</h2>
+        <h2>Email or/and password are invalid:</h2>
 
-            <ul>
+          <ul>
 
-              <% for message in @user.errors.full_messages %>
+            <% for message in @user.errors.full_messages %>
 
-                <li><%= message %></li>
+              <li><%= message %></li>
 
-              <% end %>
+            <% end %>
 
-            </ul>
+          </ul>
 
-        </div> 
+      </div> 
 
-    <% end %>  
+  <% end %>  
 
-        <div id="new_sess_container">
+      <div id="new_sess_container">
 
-          <%= f.text_field :name, placeholder: "Name" %>
+        <%= f.text_field :name, placeholder: "Name" %>
 
-          <%= f.text_field :email, placeholder: "Email" %>
-                    
-          <%= f.password_field :password, placeholder: "Password" %>
+        <%= f.text_field :email, placeholder: "Email" %>
+                  
+        <%= f.password_field :password, placeholder: "Password" %>
 
-          <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
-       
-          <%= f.submit %>
+        <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+     
+        <%= f.submit %>
 
-        </div>
-        <div style="clear: both;"></div>
+      </div>
 
-    </div>
-      
-  <% end %>
-
-      
-
-</body>
+  </div>
+    
+<% end %>

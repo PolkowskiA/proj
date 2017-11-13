@@ -1,172 +1,174 @@
-<!-- <p>
-  <strong>Name:</strong>
-  <%= image_tag @project.image.url("medium") %>
-  <%= @project.name %>
-  <%= link_to 'Edit', edit_project_path %>
-  <%= link_to 'Back', projects_path %>
-</p>
+<div class="headerShowProj">
 
-<table>
-  <% if @comments.present? %>
-    <tr>
-      <th>id</th>
-      <th>status</th>
-    </tr>  
-      <% @comments.each do |comment| %>
-        <tr>
-          <td><%= comment.id %></td>
-          <td><%= link_to comment.status, project_comment_path(@project, comment) %></td>
-          <td><%= link_to 'Usun', project_comment_path(@project, comment), method: :delete, data: {confirm: 'Are y sure ?'} %></td>
-        </tr>
-      <% end %>
-  <% else %>
-    <em> No comments </em>
-  <% end %>
-</table>
+  <div class="showHeaderTop">
 
-<%= paginate @comments %>
-
-<%= link_to 'New comment', new_project_comment_path(@project) %> -->
-
-<body>
-  
-  <div class="headerShowProj">
-
-    <div class="showNameContainer">
-
-        <div class="showName">
-
-          <p><span style="font-size: 36px;">Name: </span><%= @project.name %></p>
+        <div class="title">
+          
+          <h1>Title:</h1>
 
         </div>
 
         <% if current_user == @project.user %> 
 
-          <%= link_to edit_project_path(@project) do %>    
+            <%= link_to @project, method: :delete, data: { confirm: "Project:    '#{@project.name}'       will be removed. Are you sure?" } do %>
 
-            <div class="showIcon">
-              
-              <i class="icon-pencil-1"></i>
+              <div class="showIcon">
+                
+                <i class="icon-trash"></i> 
+
+              </div>
+
+            <% end %>
+
+            <%= link_to edit_project_path(@project) do %>             
+
+              <div class="showIcon">
+                
+                <i class="icon-pencil-1"></i>
+
+              </div>
+
+            <% end %>
+
+            <div style="clear: both;"></div>              
+
+        <% end %>
+
+  </div>
+
+  <div class="showName">
+
+      <p><%= @project.name %></p>
+
+  </div>
+
+  <div class="showHeaderBottom">  
+
+    <div class="showBack">
+
+        <%= link_to 'Back', projects_path %>
+
+    </div>
+
+    <div class="showCreate">
+
+      Created by: <%= @project.user.name %>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+  </div>
+
+</div>
+
+<div class="contentShowProj">
+  
+  <div class="showImage">
+    
+    <%= image_tag @project.image.url("medium") %>
+
+  </div>
+
+  <div class="showArticle">    
+
+    <%= simple_format(@project.description) %>      
+
+  </div> 
+
+  <div style="clear: both;"></div>   
+
+</div>
+
+<div class="commetsShowProj">
+  
+  <div class="commentsHeader">
+    
+    <div class="titleComments">
+
+      <h2> Commnets </h2>
+
+    </div>
+
+    <div class="creator" id="show">
+
+      <%= link_to new_project_comment_path(@project) do %>
+
+        <i class="icon-plus-squared"></i>
+
+      <% end %>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+  </div>
+
+  <div class="commentsContent">
+
+    <% if @comments.present? %>
+
+      <% @comments.each do |comment| %>
+
+        <div class="comment">
+
+          <div class="commentTop">
+
+            <div class="commentAuthor">
+
+              <%= comment.user.name %>
+                
+              </div>
+            <div class="commentTimeStamps">
+
+              <%= comment.created_at.strftime('%d-%b-%Y at: %T')%>
 
             </div>
 
-          <% end %>
+            <% if comment.user == current_user %> 
 
-          <%= link_to @project, method: :delete, data: { confirm: "Project:    '#{@project.name}'       will be removed. Are you sure?" } do %>
+              <%= link_to project_comment_path(@project, comment), method: :delete, data: {confirm: 'Are y sure ?'} do %>
 
-            <div class="showIcon">
-              
-              <i class="icon-trash"></i> 
+                <div class="commentIcon">
 
-            </div> 
+                  <i class="icon-trash"></i>
 
-          <% end %>     
+                </div>
 
-        <% end %>
+              <% end %>
 
-    </div>  
+              <%= link_to edit_project_comment_path(@project, comment) do %>
 
-    <div class="showHeaderBottom">  
+                <div class="commentIcon"><i class="icon-pencil-1"></i></div>
 
-      <div class="showBack">
+              <% end %>
 
-          <%= link_to 'Back', projects_path %>
-
-      </div>
-
-      <div class="showCreate">
-
-        Created by : <%= @project.user.name %>
-
-      </div>      
-
-    </div>
-
-  </div>
-
-  <div class="contentShowProj">
-    
-    <div class="showImage">
-      
-      <%= image_tag @project.image.url("medium") %>
-
-    </div>
-
-    <div class="showArticle">
-      
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-    </div>    
-
-  </div>
-
-  <div class="commetsShowProj">
-    
-    <div class="commentsHeader">
-      
-      <div class="titleComments">
-
-        <h2> Commnets </h2>
-
-      </div>
-
-      <div class="creator" id="show">
-
-        <%= link_to new_project_comment_path(@project) do %>
-
-          <i class="icon-plus-squared"></i>
-
-        <% end %>
-
-      </div>
-
-      <div style="clear: both;"></div>
-
-    </div>
-
-    <div class="commentsContent">
-
-      <% if @comments.present? %>
-
-        <% @comments.each do |comment| %>
-
-          <div class="comment">
-
-           <%= comment.user_id %>: <%= comment.status %> 
+            <% end %>
 
           </div>
 
-          <div style="clear: both;"></div>
+          <div class="commentBottom">
+            
+            <%= simple_format(comment.content) %>
 
-        <% end %>    
+          </div>
 
-      <% end %>
-      
+        </div>
 
-    </div>
+        <div style="clear: both;"></div>
 
+      <% end %>    
 
-    </div>
+    <% end %>
+    
 
   </div>
 
-</body>
+
+  </div>
+
+</div>
+
+<footer>
+  This site was created by <a href="https://github.com/PolkowskiA" target="_blank">PolkowskiA</a>. All rights reserved &copy; 2016
+</footer>

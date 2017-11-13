@@ -1,12 +1,61 @@
-<h1>Editing Project</h1>
+<header>
 
-<%= form_for @project, html: { multipart: true } do |f| %>
+	<h1>Edit project</h1>
 
-  <%= f.text_field :name %>
+</header>
 
-  <%= f.file_field :image %>
+<main>
 
-  <%= f.submit %>
-<% end %>
+	<%= form_for @project, html: { multipart: true } do |f| %>
 
-<%= link_to 'Back', project_path(@project) %>
+		<div class="label">
+			
+			<%= f.label :"Title:" %>
+
+		</div>
+
+		<div class="name">
+		
+	  	<%= f.text_field :name, placeholder: "Title" %>
+
+	  </div>
+
+	  <div class="label">
+			
+			<%= f.label :"Description:" %>
+
+		</div>
+
+	  <div class="description">
+
+	  	<%= f.text_area :description, size: "70x10", placeholder: "Description (optional)" %>
+
+		</div>
+
+	  <div class="addImage">
+
+	  	<div class="label">
+
+		  	<%= f.label :"Add image:" %>
+
+			</div>
+
+		  <div class="fileField">
+
+		 		<%= f.file_field :image %>
+
+		 	</div>
+
+		</div>
+
+		<%= f.submit %>
+
+	<% end %>
+
+	<div class="Back">
+
+		<%= link_to 'Cancel', project_path(@project) %>
+
+	</div>
+
+</main>

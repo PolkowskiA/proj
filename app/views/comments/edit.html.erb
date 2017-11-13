@@ -1,6 +1,6 @@
 <header>
 
-	<h1>New Comment</h1>
+	<h1>Edit Comment</h1>
 	
 </header>
 
@@ -8,9 +8,15 @@
 
 	<%= form_for [@project, @comment], html: { multipart: true } do |f| %>
 
+	  <div class="label">
+			
+			<%= f.label :"content:" %>
+
+		</div>
+
 	  <div class="description">
 
-	  	<%= f.text_area :content, size: "70x5", placeholder: "Content" %>
+	  	<%= f.text_area :content, size: "70x10", placeholder: "Content" %>
 
 		</div>
 

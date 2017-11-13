@@ -28,7 +28,7 @@
 <%= link_to '------------>Add project<---------------', new_project_path %> -->
 
 
-<body>
+
 <div class="container">
   <header>
 
@@ -72,6 +72,17 @@
             
           <% if project.user == current_user %>
 
+            <%= link_to project, method: :delete, data: { confirm: "Project:    '#{project.name}'       will be removed. Are you sure?" } do %>
+
+              <div class="project_icon">
+
+                <i class="icon-trash"></i>
+                <p>Delete</p>
+
+              </div>
+
+            <% end %>
+
             <%= link_to edit_project_path(project) do %>
 
               <div class="project_icon">
@@ -81,19 +92,7 @@
 
               </div>
 
-            <% end %>
-
-            <%= link_to project, method: :delete, data: { confirm: "Project:    '#{project.name}'       will be removed. Are you sure?" } do %>
-
-              <div class="project_icon">
-
-                <i class="icon-trash"></i>
-                <p>Delete</p>
-
-
-              </div>
-
-            <% end %>
+            <% end %>            
 
           <% end %>
 
@@ -129,4 +128,3 @@
   </div>
   <footer>This site was created by <a href="https://github.com/PolkowskiA" target="_blank">PolkowskiA</a>. All rights reserved &copy; 2016</footer>
 </div>
-</body>

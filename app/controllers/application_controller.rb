@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_id
+  def user_id    
     session[:user_id]
   end
 

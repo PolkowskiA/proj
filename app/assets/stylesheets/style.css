@@ -8,11 +8,33 @@ body
   margin: 0;
 }
 
+header
+{
+  text-align: center;
+}
+
 footer
 {
   background-color: black;
   text-align: center;
   padding: 25px;
+}
+
+main
+{
+  text-align: center;
+  background-color: grey;
+  width: 700px;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 3px 30px 5px rgba(213,232,178,0.9);
+  -moz-box-shadow: 3px 3px 30px 5px rgba(213,232,178,0.9);
+  box-shadow: 3px 3px 30px 5px rgba(213,232,178,0.9); 
+  color: black;
 }
 
 h1
@@ -94,9 +116,28 @@ input[type=password]
   margin-top: 10px;
 }
 
+textarea
+{
+  min-width: 55%;
+  max-width: 100%;
+  font-size: 15px;
+  padding: 10px;
+  color: #666;
+}
+
+input[type=file]
+{
+  width: 400px;
+  margin: 10px;
+  margin-left: 50px;
+  display: inline-block;
+  font-size: 20px;
+  outline: none;
+}
 
 input[type=text]:focus,
-input[type=password]:focus
+input[type=password]:focus,
+textarea:focus
 {
   -webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
   -moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
@@ -117,17 +158,19 @@ input[type=submit]
   cursor: pointer;
   letter-spacing: 2px;
   outline: none;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-input[type=submit]:focus
+input[type=submit]:focus,
+input[type=file]:focus
 {
   -webkit-box-shadow: 0px 0px 15px 5px rgba(200,200,200,0.9);
   -moz-box-shadow: 0px 0px 15px 5px rgba(200,200,200,0.9);
   box-shadow: 0px 0px 15px 5px rgba(200,200,200,0.9); 
 }
 
-input[type=submit]:hover
+input[type=submit]:hover,
+input[type=file]:hover
 {
   background-color: #37b93d;
 }
@@ -187,14 +230,9 @@ input:focus:-ms-input-placeholder
 {
   color: red;
 }
-.error_messages > ul >li
+.error_messages > ul > li
 {
   text-align: left;
-}
-
-header
-{
-  text-align: center;
 }
 
 #container_new_user
@@ -268,7 +306,7 @@ header
   height: 50px;
   margin-top: 20px;
   margin-left: 5%;
-  float: left;
+  float: right;
   text-align: center;
 }
 
@@ -296,45 +334,53 @@ header
 
 .headerShowProj
 {
-  width: 50%;
+  width: 80%;
   text-align: center;
-  border: 2px solid grey;
+  border: 2px solid white;
   border-radius: 5px;
-  padding: 15px;
-  margin-top: 50px;
+  padding: 20px;
+  margin-top: 80px;
   margin-right: auto;
   margin-left: auto;
   background-color: black;
 }
 
-.showNameContainer
+.title
 {
   text-align: center;
-  width: 100%;
-  height: 60px;
-
+  width: 90%;
+  border-bottom: : 1px solid white;
+  float: left;
 }
 
+.title > h1
+{
+  margin: 0;
+}
+
+.showHeaderTop
+{
+  text-align: center;
+}
 
 .showName
 {
-  font-size: 48px;
+  font-size: 32px;
   text-align: center;
-  float: left;
   width: 90%;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
+  padding-left: 10px;
 }
 
 .showIcon
 {
-  float: left;
+  float: right;
   width: 5%;
 }
 
 .showHeaderBottom
 {
   height: 25px;
-  clear: both;
 }
 
 .showBack
@@ -373,8 +419,9 @@ header
 {
   font-size: 18px;
 }
- .commetsShowProj
- {
+
+.commetsShowProj
+{
   background-color: #0D112B;
   width: 80%;
   border: 2px solid lightgrey;
@@ -383,27 +430,96 @@ header
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
- }
+}
 
- .titleComments
- {
+.titleComments
+{
   float: left;
   width: 70%;
   text-align: center;
- }
+}
 
- .creator#show
- {
-  margin-top: 20px;
+.creator#show
+{
+  margin: 20px;
   float: right;
   font-size: 32px;
   width: 10%;
- }
+  transition: all 0.5s ease-in-out;
+}
 
- .comment
- {
-  float: left;
+.creator#show:hover
+{
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2); 
+}
+
+.comment
+{
   clear: both;
   text-align: center;
-  border: 1px solid white;
- }
+  border-bottom: 1px solid white;
+  padding: 15px;
+  width: 85%;
+}
+
+.comment:first-child
+{
+  border-top: 1px solid white;
+}
+
+.commentTop
+{
+  height: 30px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.commentAuthor
+{
+  float: left;
+  font-size: 13px;
+  color: #A87E00;
+}
+
+.commentTimeStamps
+{
+  float: left;
+  font-size: 10px;
+  margin-left: 20px;
+  margin-top: 2.5px;
+}
+
+.commentIcon
+{
+  float: right;
+  margin-left: 10px;
+  font-size: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+.commentIcon:hover
+{
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+.commentBottom
+{
+  clear: both;
+  font-size: 15px;
+  text-align: justify;
+}
+
+.Back
+{
+  margin-top: 20px;
+}
+
+.label 
+{
+  margin: 10px;
+}

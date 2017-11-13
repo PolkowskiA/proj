@@ -8,10 +8,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-     binding.pry
-    @comment = project.comments.build(comments_params).merge!(current_user[:user_id])
+      # binding.pry
+    @comment = project.comments.build(comments_params)    
+    @comment.user = current_user
     if @comment.save
-      redirect_to project_comment_path(project, @comment)
+      redirect_to project_path(@project)
     else
       render :new
     end
@@ -22,8 +23,8 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if comment.update(params[:comment])
-      redirect_to project_comments_path(@project, @comment)
+    if comment.update(comments_params)
+      redirect_to project_path(@project)
     else
       render :edit
     end
@@ -37,7 +38,7 @@ class CommentsController < ApplicationController
   private
 
   def comments_params
-    params.require(:comment).permit(:status)
+    params.require(:comment).permit(:content)
   end
 
   def project

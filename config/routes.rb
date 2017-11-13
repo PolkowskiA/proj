@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   end
 
   root to: 'projects#index'
-  resources :users
+  resources :users do
+  	resources :comments
+  end
   resources :sessions, only: [:new, :create, :destroy]
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   # root to:'projects#index'
