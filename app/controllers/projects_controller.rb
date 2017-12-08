@@ -1,13 +1,29 @@
 
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all # .page(params[:page]).per(5)
+
+  # if params[:page]
+  #   session[:project_index_page] = params[:page]
+  # end
+  # @projects = Project.order(:id).page(session[:project_index_page]).per(5)
+
+
+
+    @projects = Project.all.order(:id).page(params[:page]).per(5)
+    # binding.pry
+    @projects.total_pages
+
+    @rating = Rating.where(comment_id: @comment.id, user_id: @current_user.id).first
+    unless @rating
+      @rating = Rating.create(comment_id: @comment.id, user_id: @current_user.id, score: 0)
+    end
+  end
   end
 
   def show
     project
-    @comments = project.comments.page(params[:page]).per(5)
-  end
+    @comments = project.comments.order("updated_at DESC").page(params[:page]).per(5)
+    
 
   def new
     @project = Project.new

@@ -269,13 +269,14 @@ input:focus:-ms-input-placeholder
 
 .project_view
 {
-  width: 30%;
+  width: 45%;
   height: 50px;
   margin-top: 20px;
   margin-left: 5%;
   float: left;
-  text-align: center;
+  text-align: left;
   font-size: 24px;
+  overflow: auto;
 }
 
 .project_data

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment = project.comments.build(comments_params)    
     @comment.user = current_user
     if @comment.save
-      redirect_to project_path(@project)
+      # redirect_to(request.env['HTTP_REFERER'])
     else
       render :new
     end

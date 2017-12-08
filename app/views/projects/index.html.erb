@@ -29,12 +29,21 @@
 
 
 
+
+<p>Averate rating</p>
+<div id="star"></div>
+
+<p>Your rating</p>
+<div id="user_star"></div>
+
+
+
 <div class="container">
   <header>
 
     <h1>Projects</h1>
   
-  </header>
+  </header>  
 
   <div class="content">
 
@@ -126,5 +135,8 @@
     <div style="clear: both;"></div>
 
   </div>
+
+  <%= paginate @projects %>
+  
   <footer>This site was created by <a href="https://github.com/PolkowskiA" target="_blank">PolkowskiA</a>. All rights reserved &copy; 2016</footer>
 </div>
