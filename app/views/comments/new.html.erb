@@ -8,13 +8,15 @@
 
 	<%= form_for [@project, @comment], html: { multipart: true } do |f| %>
 
+		<div id="star-rating"></div> 
+
 	  <div class="description">
 
 	  	<%= f.text_area :content, size: "70x5", placeholder: "Content" %>
 
 		</div>
-
-		<%= f.submit %>
+		
+			<%= f.submit %>
 
 	<% end %>
 

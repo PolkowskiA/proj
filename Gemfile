@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
-gem 'rubocop', require: false
+gem 'rubocop', '~> 0.52.0', require: false
 gem 'rake', '~> 12.3'
 gem 'paperclip', '~> 5.0.0'
 gem 'pg'

@@ -25,5 +25,19 @@
     <% end %>
 
     <%= yield %>
+
+    <script>
+          
+      $('#star').raty({        
+        path: '/assets',
+        readOnly: true,
+        score: function(){
+          return $(this).attr('data-score');
+        }
+      });
+
+    </script>
+
+
   </body>
 </html>

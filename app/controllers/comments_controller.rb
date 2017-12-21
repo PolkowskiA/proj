@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment = project.comments.build(comments_params)    
     @comment.user = current_user
     if @comment.save
-      # redirect_to(request.env['HTTP_REFERER'])
+      redirect_to project_path(@project)
     else
       render :new
     end
@@ -34,11 +34,11 @@ class CommentsController < ApplicationController
     comment.destroy
     redirect_to project_path(project)
   end
-
+    
   private
 
   def comments_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :rating)
   end
 
   def project

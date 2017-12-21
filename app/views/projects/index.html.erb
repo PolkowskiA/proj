@@ -30,11 +30,7 @@
 
 
 
-<p>Averate rating</p>
-<div id="star"></div>
 
-<p>Your rating</p>
-<div id="user_star"></div>
 
 
 
@@ -112,6 +108,12 @@
 
           </div>
 
+            <p>Averate rating</p>
+            <div id="star"></div>
+
+            <p>Your rating</p>
+            <div id="user_star"></div>
+
         <% end %>
 
       <% else %>
@@ -140,3 +142,23 @@
   
   <footer>This site was created by <a href="https://github.com/PolkowskiA" target="_blank">PolkowskiA</a>. All rights reserved &copy; 2016</footer>
 </div>
+
+<script>
+  $('#star').raty({
+    readOnly: true,
+    score: <%= @projects.comments.average_rating %>,
+    path: '/assets'
+  });
+
+  $('#user_star').raty({
+    score: <%= @rating.score %>,
+    path: '/assets',
+    click: function(score, evt) {
+      $.ajax({
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PATCH',
+        data: { score: score }
+      });
+    }
+  });
+</script>

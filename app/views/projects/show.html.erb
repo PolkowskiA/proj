@@ -42,6 +42,8 @@
 
   </div>
 
+  <div class="star-rating" data-score="<%= @avg_rating %>"></div> <em><%= "#{@comments.length} comments"%> </em>
+
   <div class="showHeaderBottom">  
 
     <div class="showBack">
@@ -80,7 +82,7 @@
 
 </div>
 
-<div class="commetsShowProj">
+<div class="commentsShowProj">
   
   <div class="commentsHeader">
     
@@ -125,6 +127,8 @@
 
             </div>
 
+            <div class="star-rating" data-score="<%= comment.rating %>"></div>
+
             <% if comment.user == current_user %> 
 
               <%= link_to project_comment_path(@project, comment), method: :delete, data: {confirm: 'Are y sure ?'} do %>
@@ -153,11 +157,15 @@
 
           </div>
 
-        </div>
+        </div>        
 
         <div style="clear: both;"></div>
 
       <% end %>    
+
+    <% else %>
+
+    Be the first one. Comment Now!
 
     <% end %>
     

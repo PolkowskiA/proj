@@ -8,6 +8,8 @@
 
 	<%= form_for [@project, @comment], html: { multipart: true } do |f| %>
 
+		<div id="star-rating"></div> 
+
 	  <div class="label">
 			
 			<%= f.label :"content:" %>

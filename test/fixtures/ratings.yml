@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  comment: one
+  project: one
   user: one
   score: 1
+  default: 1
 
 two:
-  comment: two
+  project: two
   user: two
   score: 1
+  default: 1

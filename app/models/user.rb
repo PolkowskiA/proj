@@ -8,5 +8,5 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   has_many :projects
   has_many :comments, dependent: :destroy
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
 end

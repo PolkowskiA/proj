@@ -1,28 +1,22 @@
-
 class ProjectsController < ApplicationController
+
   def index
 
-  # if params[:page]
-  #   session[:project_index_page] = params[:page]
-  # end
-  # @projects = Project.order(:id).page(session[:project_index_page]).per(5)
-
-
-
-    @projects = Project.all.order(:id).page(params[:page]).per(5)
-    # binding.pry
+    @projects = Project.all.order(:id).page(params[:page]).per(10)
     @projects.total_pages
 
-    @rating = Rating.where(comment_id: @comment.id, user_id: @current_user.id).first
-    unless @rating
-      @rating = Rating.create(comment_id: @comment.id, user_id: @current_user.id, score: 0)
-    end
-  end
   end
 
   def show
+
     project
-    @comments = project.comments.order("updated_at DESC").page(params[:page]).per(5)
+    @comments = project.comments.order("updated_at DESC").page(params[:page]).per(10)
+      @rating = Rating.where(comment_id: @comment.id, user_id: current_user.id).first
+        unless @rating
+      @rating = Rating.create(comment_id: @comment.id, user_id: current_user.id, score: 0)
+      end
+        
+  end
     
 
   def new
@@ -64,4 +58,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name, :image, :description)
   end
+
 end
