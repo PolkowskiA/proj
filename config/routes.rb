@@ -2,15 +2,16 @@
 Rails.application.routes.draw do
 
   resources :projects do
-    resources :comments
+    resources :comments do
+      resources :ratings
+    end
   end
   
   resources :users do
   	resources :comments
   end
 
-  resources :ratings, only: :update
-
+ 
   resources :sessions, only: [:new, :create, :destroy]
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   root to:'projects#index'

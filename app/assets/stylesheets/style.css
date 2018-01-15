@@ -103,8 +103,8 @@ a:hover
 
 input[type=text],
 input[type=password]
-{
-  width: 300px;
+{ 
+  width: 100%;  
   background-color: #efefef;
   color: #666;
   border: 2px solid #ddd;
@@ -118,11 +118,15 @@ input[type=password]
 
 textarea
 {
-  min-width: 55%;
-  max-width: 100%;
+  width: 680px;
+  margin-top: 20px;
+  min-width: 60%;
+  max-width: 97.1428571%;
   font-size: 15px;
   padding: 10px;
   color: #666;
+  outline: none;
+  border-radius: 10px;
 }
 
 input[type=file]

@@ -1,14 +1,10 @@
 class CommentsController < ApplicationController
-  def show
-    comment
-  end
-
+   
   def new
     @comment = project.comments.build
   end
 
   def create
-      # binding.pry
     @comment = project.comments.build(comments_params)    
     @comment.user = current_user
     if @comment.save
@@ -33,7 +29,7 @@ class CommentsController < ApplicationController
   def destroy
     comment.destroy
     redirect_to project_path(project)
-  end
+  end    
     
   private
 

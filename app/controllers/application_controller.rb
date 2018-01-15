@@ -1,13 +1,18 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
 
+  protect_from_forgery with: :exception
   before_action :authenticate_user
+  helper_method :current_user, :avg_rating
 
   def current_user
     @current_user ||= User.find(user_id) if user_id
   end
 
-  helper_method :current_user
+  def avg_rating          
+    @avg_rating = @project.comments.sum(:rating).fdiv(@project.comments.size)
+  end  
+
+
 
   private
 
@@ -23,4 +28,5 @@ class ApplicationController < ActionController::Base
     return if logged_in
     redirect_to new_session_path
   end
+
 end

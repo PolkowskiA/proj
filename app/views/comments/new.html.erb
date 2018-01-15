@@ -6,9 +6,10 @@
 
 <main>
 
+
 	<%= form_for [@project, @comment], html: { multipart: true } do |f| %>
 
-		<div id="star-rating"></div> 
+		<%= f.number_field :rating, min: 1, max: 5 %>
 
 	  <div class="description">
 
@@ -26,4 +27,5 @@
 
 	</div>
 
+	
 </main>

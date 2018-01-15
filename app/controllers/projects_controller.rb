@@ -1,23 +1,15 @@
 class ProjectsController < ApplicationController
 
   def index
-
     @projects = Project.all.order(:id).page(params[:page]).per(10)
-    @projects.total_pages
-
+    @projects.total_pages    
+    #binding.pry
   end
 
   def show
-
-    project
+    project   
     @comments = project.comments.order("updated_at DESC").page(params[:page]).per(10)
-      @rating = Rating.where(comment_id: @comment.id, user_id: current_user.id).first
-        unless @rating
-      @rating = Rating.create(comment_id: @comment.id, user_id: current_user.id, score: 0)
-      end
-        
-  end
-    
+  end    
 
   def new
     @project = Project.new
@@ -42,12 +34,12 @@ class ProjectsController < ApplicationController
     else
       render :edit
     end
-  end
+  end  
 
   def destroy
     project.destroy
     redirect_to projects_path, notice: 'Project was successfully destroyed.'
-  end
+  end  
 
   private
 
