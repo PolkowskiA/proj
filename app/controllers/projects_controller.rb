@@ -1,9 +1,7 @@
 class ProjectsController < ApplicationController
-
-  def index
-    @projects = Project.all.order(:id).page(params[:page]).per(10)
-    @projects.total_pages    
-    #binding.pry
+  
+  def index    
+    @projects = Project.all.order(:id).page(params[:page]).per(10)        
   end
 
   def show

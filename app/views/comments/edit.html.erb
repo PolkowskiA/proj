@@ -8,9 +8,8 @@
 
 	<%= form_for [@project, @comment], html: { multipart: true } do |f| %>
 
-		<div id="star-rating"></div> 
-
-		<%= f.number_field :rating, min: 1, max: 5 %>
+		<div id="star-rating" data-score="<%= @comment.rating %>"></div> 
+		
 
 	  <div class="label">
 			
@@ -35,3 +34,15 @@
 	</div>
 
 </main>
+
+<script>
+
+$('#star-rating').raty({    
+    path: '/assets/',
+    score: function(){
+      return $(this).atrr('data-score');
+    }, 
+    scoreName: 'comment[rating]'
+  });
+
+</script>

@@ -2,9 +2,7 @@
 Rails.application.routes.draw do
 
   resources :projects do
-    resources :comments do
-      resources :ratings
-    end
+    resources :comments
   end
   
   resources :users do

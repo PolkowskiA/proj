@@ -8,11 +8,15 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(user_id) if user_id
   end
 
-  def avg_rating          
-    @avg_rating = @project.comments.sum(:rating).fdiv(@project.comments.size)
-  end  
+  def avg_rating
 
+    if @comments
+      @comments.average(:rating)
+    elsif @projects
+      project.comments.average(:rating)
+    end
 
+  end
 
   private
 

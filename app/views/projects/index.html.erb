@@ -28,12 +28,6 @@
 <%= link_to '------------>Add project<---------------', new_project_path %> -->
 
 
-
-
-
-
-
-
 <div class="container">
   <header>
 
@@ -108,18 +102,7 @@
 
           </div>
 
-            <p>Average rating</p>
-            <div class="star-rating" data-score="<%= @avg_rating %>"></div>
-
-            <script>
-
-              $('.star-rating').raty({
-                readOnly: true,
-                score: <%= @avg_rating %>,
-                path: '/assets'
-              });
-
-            </script>
+            <div class="starRating" data-score="<%= project.comments.average(:rating) %>"></div>
 
         <% end %>        
 
@@ -149,3 +132,14 @@
   
   <footer>This site was created by <a href="https://github.com/PolkowskiA" target="_blank">PolkowskiA</a>. All rights reserved &copy; 2016</footer>
 </div>
+
+<script>
+
+$('.starRating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function(){
+      return $(this).atrr('data-score');
+    }
+  });
+</script>

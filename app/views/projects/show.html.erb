@@ -42,7 +42,9 @@
 
   </div>
 
-  <div class="star-rating" data-score="<%= avg_rating %>"></div> <em><%= "#{avg_rating.round(1)} of #{@comments.length} comments"%> </em>
+  <div class="star-rating" data-score="<%= avg_rating %>"></div> 
+
+  <em><%= "#{@comments.size} comments"%> </em>
 
   <div class="showHeaderBottom">  
 
@@ -127,7 +129,7 @@
 
             </div>
 
-            
+            <div class="commentRating" data-score="<%= comment.rating %>"></div> 
 
             <% if comment.user == current_user %> 
 
@@ -157,11 +159,13 @@
 
           </div>
 
-        </div>        
+        </div>
+
+        
 
         <div style="clear: both;"></div>
 
-      <% end %>    
+      <% end %>         
 
     <% else %>
 
@@ -183,9 +187,20 @@
 
 <script>
 
-$('.star-rating').raty({
-  readOnly: true,
-  score: <%= avg_rating %>,
-  path: '/assets'
-});
+  $('.star-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function(){
+      return $(this).atrr('data-score');
+    }
+  });
+       
+  $('.commentRating').raty({
+    readOnly: true,
+    path: '/assets',
+    score: function(){
+      return $(this).atrr('data-score');
+    }
+  });
+
 </script>
