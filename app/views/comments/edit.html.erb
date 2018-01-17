@@ -1,0 +1,48 @@
+<header>
+
+	<h1>Edit Comment</h1>
+	
+</header>
+
+<main>
+
+	<%= form_for [@project, @comment], html: { multipart: true } do |f| %>
+
+		<div id="star-rating" data-score="<%= @comment.rating %>"></div> 
+		
+
+	  <div class="label">
+			
+			<%= f.label :"content:" %>
+
+		</div>
+
+	  <div class="description">
+
+	  	<%= f.text_area :content, size: "70x10", placeholder: "Content" %>
+
+		</div>
+
+		<%= f.submit %>
+
+	<% end %>
+
+	<div class="Back">
+
+		<%= link_to 'Cancel', :back %>
+
+	</div>
+
+</main>
+
+<script>
+
+$('#star-rating').raty({    
+    path: '/assets/',
+    score: function(){
+      return $(this).atrr('data-score');
+    }, 
+    scoreName: 'comment[rating]'
+  });
+
+</script>

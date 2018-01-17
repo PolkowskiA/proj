@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# frozen_string_literal: true
+>>>>>>> auth
 require_relative 'boot'
 
 require 'rails/all'

@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD
+=======
+ <%= stylesheet_link_tag "style.css", "css/edit.css" %>
+>>>>>>> auth

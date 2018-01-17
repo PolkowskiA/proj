@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Editing Project</h1>
 
 <%= form_for @project do |f| %>
@@ -11,3 +12,66 @@
 
 <%= link_to 'Show', @project %> |
 <%= link_to 'Back', projects_path %>
+=======
+<header>
+
+	<h1>Edit project</h1>
+
+</header>
+
+<main>
+
+	<%= form_for @project, html: { multipart: true } do |f| %>
+
+		<div class="label">
+			
+			<%= f.label :"Title:" %>
+
+		</div>
+
+		<div class="name">
+		
+	  	<%= f.text_field :name, placeholder: "Title" %>
+
+	  </div>
+
+	  <div class="label">
+			
+			<%= f.label :"Description:" %>
+
+		</div>
+
+	  <div class="description">
+
+	  	<%= f.text_area :description, size: "70x10", placeholder: "Description (optional)" %>
+
+		</div>
+
+	  <div class="addImage">
+
+	  	<div class="label">
+
+		  	<%= f.label :"Update image:" %>
+
+			</div>
+
+		  <div class="fileField">
+
+		 		<%= f.file_field :image %>
+
+		 	</div>
+
+		</div>
+
+		<%= f.submit %>
+
+	<% end %>
+
+	<div class="Back">
+
+		<%= link_to 'Cancel', request.referer %>
+
+	</div>
+
+</main>
+>>>>>>> auth

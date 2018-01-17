@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Projects</h1>
 
 <table>
@@ -22,8 +23,154 @@
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+=======
+<!-- <h1>Projects</h1>
+
+<table>
+  <% if @projects.present? %>l
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+      <th>User email</th>
+    </tr>
+      <% @projects.each do |project| %>
+        <tr>
+          
+            <td><%= link_to project.name, project %></td>
+            <td><%= project.created_at.strftime('%Y-%m-%d - %T') %></td>
+            <td><%= project.updated_at.strftime('%Y-%m-%d - %T') %></td>
+            <td><%= project.user.email %></td>
+          <% if project.user == current_user %>
+            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+>>>>>>> auth
   <% else %>
     <em> No Projects Found </em>
   <% end %>
 </table>
+<<<<<<< HEAD
 <%= link_to '------------>Add project<---------------', new_project_path %>
+=======
+<%= link_to '------------>Add project<---------------', new_project_path %> -->
+
+
+<div class="container">
+  <header>
+
+    <h1>Projects</h1>
+  
+  </header>  
+
+  <div class="content">
+
+    <div class="project">
+
+      <% if @projects.present? %>
+
+        <% @projects.each do |project| %>
+
+          <div class="project_view">
+
+            <%= link_to project.name, project %>
+
+          </div>
+
+          <div class="image">
+      
+            <%= image_tag project.image.url("thumb") %>
+
+          </div>
+
+          <div class="project_update">
+
+            <% if project.created_at == project.updated_at %>
+
+              No updates
+              
+            <% else %>
+
+              Last update: <%= project.updated_at.strftime('%Y-%m-%d - %T') %>
+
+            <% end %>
+
+          </div>          
+            
+          <% if project.user == current_user %>
+
+            <%= link_to project, method: :delete, data: { confirm: "Project:    '#{project.name}'       will be removed. Are you sure?" } do %>
+
+              <div class="project_icon">
+
+                <i class="icon-trash"></i>
+                <p>Delete</p>
+
+              </div>
+
+            <% end %>
+
+            <%= link_to edit_project_path(project) do %>
+
+              <div class="project_icon">
+
+                <i class="icon-pencil-1"></i>  
+                <p>Edit</p>        
+
+              </div>
+
+            <% end %>            
+
+          <% end %>
+
+          <div class="project_data">
+            
+            Created by: <%= project.user.name %>
+            at: <%= project.created_at.strftime('%Y-%m-%d') %>
+
+          </div>
+
+            <div class="starRating" data-score="<%= project.comments.average(:rating) %>"></div>
+
+        <% end %>        
+
+      <% else %>
+
+         No Projects Found
+
+      <% end %>
+
+    </div>
+
+    <div class="creator">
+
+      <%= link_to new_project_path do %>
+
+        <i class="icon-plus-squared"></i>
+
+      <% end %>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+  </div>
+
+  <%= paginate @projects %>
+  
+  <footer>This site was created by <a href="https://github.com/PolkowskiA" target="_blank">PolkowskiA</a>. All rights reserved &copy; 2016</footer>
+</div>
+
+<script>
+
+$('.starRating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function(){
+      return $(this).atrr('data-score');
+    }
+  });
+</script>
+>>>>>>> auth
