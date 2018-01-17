@@ -13,8 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
-<<<<<<< HEAD
-=======
+//= require_tree
 //= require jquery.raty.js
->>>>>>> auth
