@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-class Project < ApplicationRecord
-	validates_presence_of :name
-	has_many :comments, dependent: :destroy
-end
-=======
 # frozen_string_literal: true
 class Project < ApplicationRecord
   validates :name, uniqueness: true, presence: true
@@ -14,4 +8,3 @@ class Project < ApplicationRecord
   has_many :ratings  
 	
 end
->>>>>>> auth

@@ -10,15 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161030190829) do
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "status"
-    t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
 ActiveRecord::Schema.define(version: 20171005191915) do
 
   # These are extensions that must be enabled in order to support this database
@@ -32,15 +23,10 @@ ActiveRecord::Schema.define(version: 20171005191915) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
->>>>>>> auth
   end
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
-<<<<<<< HEAD
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
     t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -55,7 +41,6 @@ ActiveRecord::Schema.define(version: 20171005191915) do
     t.string "email"
     t.string "password_digest"
     t.string "name"
->>>>>>> auth
   end
 
 end

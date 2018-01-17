@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 # frozen_string_literal: true
->>>>>>> auth
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -22,11 +19,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-<<<<<<< HEAD
-      'Cache-Control' => 'public, max-age=172800'
-=======
       'Cache-Control' => 'public, max-age=172800',
->>>>>>> auth
     }
   else
     config.action_controller.perform_caching = false
@@ -37,11 +30,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-<<<<<<< HEAD
-  config.action_mailer.perform_caching = false
-=======
   config.action_mailer.perform_caching = true
->>>>>>> auth
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -49,12 +38,9 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
-<<<<<<< HEAD
-=======
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {address: 'localhost', port: 1025}
 
->>>>>>> auth
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.

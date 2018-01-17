@@ -1,8 +1,4 @@
 class ApplicationController < ActionController::Base
-<<<<<<< HEAD
-  protect_from_forgery with: :exception
-end
-=======
 
   protect_from_forgery with: :exception
   before_action :authenticate_user
@@ -38,4 +34,3 @@ end
   end
 
 end
->>>>>>> auth

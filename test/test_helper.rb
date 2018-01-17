@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 # frozen_string_literal: true
->>>>>>> auth
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
