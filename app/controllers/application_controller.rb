@@ -6,17 +6,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(user_id) if user_id
-  end
-
-  def avg_rating
-
-    if @comments
-      @comments.average(:rating)
-    elsif @projects
-      project.comments.average(:rating)
-    end
-
-  end
+  end  
 
   private
 

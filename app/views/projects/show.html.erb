@@ -42,9 +42,9 @@
 
   </div>
 
-  <div class="star-rating" data-score="<%= avg_rating %>"></div> 
+  <div class="star-rating" data-score="<%= @avg_rating %>"></div> 
 
-  <em><%= "#{@comments.size} comments"%> </em>
+  <em><%= "#{@avg_rating}/5 of #{@commentz.size} comments"%> </em>
 
   <div class="showHeaderBottom">  
 
@@ -159,9 +159,7 @@
 
           </div>
 
-        </div>
-
-        
+        </div>        
 
         <div style="clear: both;"></div>
 

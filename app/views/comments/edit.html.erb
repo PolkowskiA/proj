@@ -8,6 +8,13 @@
 
 	<%= form_for [@project, @comment], html: { multipart: true } do |f| %>
 
+		<div class="label">
+			
+			<%= f.label :Rating %>
+
+		</div>
+
+
 		<div id="star-rating" data-score="<%= @comment.rating %>"></div> 
 		
 

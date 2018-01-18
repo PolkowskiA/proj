@@ -1,12 +1,13 @@
 class ProjectsController < ApplicationController
   
   def index    
-    @projects = Project.all.order(:id).page(params[:page]).per(10)        
+    @projects = Project.all.order(:id).page(params[:page]).per(5)        
   end
 
   def show
-    project   
-    @comments = project.comments.order("updated_at DESC").page(params[:page]).per(10)
+    project      
+    @avg_rating ||= commentz.blank? ? 0 : commentz.average(:rating).round(2)
+    @comments = @commentz.order("updated_at DESC").page(params[:page]).per(5)
   end    
 
   def new
@@ -40,6 +41,10 @@ class ProjectsController < ApplicationController
   end  
 
   private
+
+  def commentz
+    @commentz ||= @project.comments
+  end
 
   def project
     @project ||= Project.find(params[:id])

@@ -11,6 +11,7 @@ body
 header
 {
   text-align: center;
+  margin-top: 50px;
 }
 
 footer
@@ -39,7 +40,8 @@ main
 
 h1
 {
-  font-size: 40px;
+  font-size: 50px;
+  font-family: 'Playfair Display';
 }
 
 a:link
@@ -246,7 +248,7 @@ input:focus:-ms-input-placeholder
 
 .content
 {  
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -258,8 +260,13 @@ input:focus:-ms-input-placeholder
   margin-right: 1%;
   float: left;
   border: 2px solid white;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 20px;
+}
+
+.project_container
+{
+  border-bottom: 1px ridge lightgrey;
 }
 
 .creator
@@ -272,7 +279,7 @@ input:focus:-ms-input-placeholder
 
 .project_view
 {
-  width: 45%;
+  width: 50%;
   height: 50px;
   margin-top: 20px;
   margin-left: 5%;
@@ -285,7 +292,7 @@ input:focus:-ms-input-placeholder
 .project_data
 {
   width: 25%;
-  height: 50px;
+  height: 35px;
   margin-top: 20px;
   margin-left: 5%;
   text-align: center;
@@ -320,7 +327,36 @@ input:focus:-ms-input-placeholder
   font-size: 14px;
 }
 
-.icon-plus-circled, .icon-plus-squared, .icon-plus-squared-alt, .icon-doc-add
+.list
+{
+  text-align: center;
+  float: right;
+  width: 5%;
+}
+
+.list > ul
+{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.list:hover > ul
+{  
+  display: block;
+}
+
+.list > ul > li
+{  
+  position: relative;
+  font-size: 18px;
+  display: block;
+  padding-top: 8px;
+  border-bottom: 1px solid white;
+}
+
+.icon-plus-squared
 {
   color: white;
 }
@@ -331,7 +367,6 @@ input:focus:-ms-input-placeholder
   width: 15%;
   float: left;
   height: 100%;
-  vertical-align: middle;
   margin-top: 15px;
   font-size: 10px;
 }
@@ -437,7 +472,7 @@ input:focus:-ms-input-placeholder
 .titleComments
 {
   float: left;
-  width: 70%;
+  width: 80%;
   text-align: center;
 }
 
@@ -524,4 +559,13 @@ input:focus:-ms-input-placeholder
 .label 
 {
   margin: 10px;
+}
+
+.starRating
+{  
+  float: left;
+  vertical-align: middle;
+  margin-top: 25px;
+  margin-left: 10%;
+  font-size: 10px;
 }
