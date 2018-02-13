@@ -30,7 +30,7 @@ gem 'kaminari'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'rubocop', '~> 0.52.0', require: false
 gem 'rake', '~> 12.3'
-gem 'paperclip', '~> 5.0.0'
+gem "paperclip", "~> 5.2.1"
 gem 'pg'
 gem 'ratyrate'
 # gem 'will_paginate', '~> 3.1'
