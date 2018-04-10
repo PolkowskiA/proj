@@ -7,14 +7,14 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: arek_development
+  database: arek_dev
   pool: 5
   username: arek
   password:
 
 development:
   <<: *default
-  database: arek_development
+  database: arek_dev
   username: arek
 
 # Warning: The database defined as "test" will be erased and
