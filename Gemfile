@@ -33,6 +33,7 @@ gem 'rake', '~> 12.3'
 gem "paperclip", "~> 5.2.1"
 gem 'pg'
 gem 'ratyrate'
+gem 'rb-readline'
 # gem 'will_paginate', '~> 3.1'
 
 # Use Capistrano for deployment

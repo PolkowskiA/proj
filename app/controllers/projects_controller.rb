@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+
+  before_action :has_permission?, only: [:edit, :update, :destroy]
   
   def index    
     @projects = Project.all.order(:id).page(params[:page]).per(5)        
@@ -23,8 +25,8 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def edit
-    project
+  def edit    
+      project
   end
 
   def update
