@@ -1,0 +1,16 @@
+%header
+	%h1 New Project
+%main
+	= form_for @project, html: {multipart: true } do |f|
+		.name
+			= f.text_field :name, placeholder: "Title"
+		.description
+			= f.text_area :description, size: "70x10", placeholder: "Description(optional)"
+		.addImage
+			.label
+				= f.label :"AddImage"
+			.fileField
+				= f.file_field :image
+		= f.submit
+	.Back
+		= link_to 'Cancel', projects_path

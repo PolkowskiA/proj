@@ -1,107 +1,58 @@
 <div class="container">
   <header>
-
-    <h1>Projects</h1>
-  
+    <h1>Projects</h1>  
   </header>  
-
   <div class="content">
-
     <div class="project">
-
       <% if @projects.present? %>
-
         <% @projects.each do |project| %>
-
           <div class="project_container">
-
             <div class="project_view">
-
               <%= link_to project.name, project %>
-
             </div>
-
-            <div class="image">
-        
+            <div class="image">        
               <%= image_tag project.image.url("thumb") %>
-
             </div>
-
             <div class="starRating" data-score="<%= project.comments.average(:rating) %>"></div>
-
             <% if project.user == current_user %>
-
-              <div class="list">
-                
-                <i class="icon-list-bullet"></i>    
-
+              <div class="list">                
+                <i class="icon-list-bullet"></i>
                 <ul>
-
                   <li>
                     <%= link_to edit_project_path(project) do %>
-
                       Edit
-
                     <% end %>
                   </li>
-
                   <li>
                     <%= link_to project, method: :delete, data: { confirm: "Project:     '#{project.name}'     will be removed. Are you sure?" } do %>
-
                       Delete
-
                     <% end %>
-
                   </li>
-
                 </ul>
-
               </div>
-
             <% end %>
-
             <div style="clear: both;"></div>
-
-            <div class="project_data">
-              
+            <div class="project_data">              
               Created by: <%= project.user.name %>
               at: <%= project.created_at.strftime('%Y-%m-%d') %>
-
             </div>
-
           </div>
-
           <% end %>
-
-        <% else %>
-
+      <% else %>
            No Projects Found
-
-        <% end %>
-
-    </div>
-
-    <div class="creator">
-
-      <%= link_to new_project_path do %>
-
-        <i class="icon-plus-squared"></i>
-
       <% end %>
-
     </div>
-
+    <div class="creator">
+      <%= link_to new_project_path do %>
+        <i class="icon-plus-squared"></i>
+      <% end %>
+    </div>
     <div style="clear: both;"></div>
-
   </div>
-
-  <%= paginate @projects %>
-  
+  <%= paginate @projects %>  
   <footer>This site was created by <a href="https://github.com/PolkowskiA" target="_blank">PolkowskiA</a>. All rights reserved &copy; 2018</footer>
 </div>
-
 <script>
-
 $('.starRating').raty({
     readOnly: true,
     path: '/assets/',

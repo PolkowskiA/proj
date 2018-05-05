@@ -1,0 +1,17 @@
+%header
+	%h1 New Comment
+%main
+	= form_for [@project, @comment], html: {multipart: true} do |f|
+		#star-rating
+		.description
+			= f.text_area :content, size: "70x5", placeholder: "Content"
+		= f.submit
+		.Back
+			= link_to 'Cancel', project_path(@project)
+:javascript
+	$('#star-rating').raty
+	({    
+		path: '/assets/',
+		score: 3 , 
+		scoreName: 'comment[rating]'
+	});

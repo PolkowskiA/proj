@@ -1,0 +1,20 @@
+%header
+	%h1 Edit Project
+%main
+	= form_for @project, html: {multipart: true } do |f|
+		.label
+			= f.label :"Title"
+		.name
+			= f.text_field :name, placeholder: "Title"
+		.label
+			= f.label :"Description"
+		.description
+			= f.text_area :description, size: "70x10", placeholder: "Description (optional)"
+		.addImage
+			.label
+				=f.label :"Update image"
+			.fileField
+				= f.file_field :image
+		= f.submit
+	.Back
+		= link_to 'Cancel', request.referer

@@ -1,41 +1,22 @@
 <header>
-
-	<h1>New Comment</h1>
-	
+	<h1>New Comment</h1>	
 </header>
-
 <main>
-
-
 	<%= form_for [@project, @comment], html: { multipart: true } do |f| %>
-
 		<div id="star-rating"></div>
-
-	  <div class="description">
-
-	  	<%= f.text_area :content, size: "70x5", placeholder: "Content" %>
-
-		</div>
-		
+		<div class="description">
+			<%= f.text_area :content, size: "70x5", placeholder: "Content" %>
+		</div>		
 			<%= f.submit %>
-
 	<% end %>
-
 	<div class="Back">
-
 		<%= link_to 'Cancel', project_path(@project) %>
-
-	</div>
-
-	
+	</div>	
 </main>
-
 <script>
-
 $('#star-rating').raty({    
-    path: '/assets/',
-    score: 3 , 
-    scoreName: 'comment[rating]'
-  });
-
+	path: '/assets/',
+	score: 3 , 
+	scoreName: 'comment[rating]'
+	});
 </script>

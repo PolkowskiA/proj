@@ -1,0 +1,72 @@
+.headerShowProj
+	.showHeaderTop
+		.title
+			%h1 Title:
+		- if current_user == @project.user
+			= link_to @project, method: :delete, data: {confirm: "Project:   '#{@project.name}'   willbe removed./nAre you sure?"} do
+				.showIcon
+					%i.icon-trash
+			= link_to edit_project_path(@project) do
+				.showIcon
+					%i.icon-pencil-1
+			%div{style: "clear: both;"}
+	.showName
+		%p= @project.name
+	.star-rating{:"data-score"=> @avg_rating}
+	%em= "#{@avg_rating}/5 of #{@commentz.size} comments"
+	.showHeaderBottom
+		.showBack
+			= link_to 'Back', projects_path
+		.showCreate
+			Created by:
+			= @project.user.name
+		%div{style: "clear: both;"}
+.contentShowProj
+	.showImage
+		= image_tag @project.image.url("medium")
+	.showArticle
+		= simple_format(@project.description)
+	%div{style: "clear: both;"}
+.commentsShowProj
+	.commentsHeader
+		.titleComments
+			%h2 Comments
+		.creator#show
+			= link_to new_project_comment_path(@project) do
+				%i.icon-plus-squared
+		%div{style: "clear: both;"}
+	.commentsContent
+		- if @comments.present?
+			- @comments.each do |comment|
+				.comment
+					.commentTop
+						.commentAuthor
+							= comment.user.name
+						.commentTimeStamps
+							= comment.created_at.strftime('%d-%b-%Y at: %T')
+						.commentRating{:"data-score"=> comment.rating}
+						- if comment.user == current_user
+							= link_to project_comment_path(@project, comment) do
+								.commentIcon
+									%i.icon-pencil-1
+					.commentBottom
+						= simple_format(comment.content)
+					%div{style: "clear: both;"}
+		- else
+			Be the first one. Comment Now!
+		= paginate @comments
+:javascript
+	$('.star-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function(){
+			return $(this).atrr('data-score');
+		}
+	});       
+	$('.commentRating').raty({
+		readOnly: true,
+		path: '/assets',
+		score: function(){
+			return $(this).atrr('data-score');
+		}
+	});

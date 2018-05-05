@@ -19,6 +19,7 @@ footer
   background-color: black;
   text-align: center;
   padding: 25px;
+  margin-top: 15px;
 }
 
 main
@@ -232,7 +233,7 @@ input:focus:-ms-input-placeholder
   width: 50%
 }
 
-.error_messages > h2
+#container_new_user > .error_messages > h2
 {
   color: red;
 }

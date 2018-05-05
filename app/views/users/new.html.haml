@@ -1,0 +1,17 @@
+%header
+	%h1 Sign up
+
+- if @user.errors.any?
+	#container_new_user			
+		.error_messages
+			%h2 #{@user.errors.count} error(s) prohibited this user from being saved:
+			%ul
+				- for message in @user.errors.full_messages
+					%li
+						= message
+= form_for @user do |f|
+	#new_sess_container
+		= f.text_field :name, placeholder: "Name"
+		= f.password_field :password, placeholder: "Password"
+		= f.password_field :password_confimation, placeholder: "Confirm password"
+		= f.submit
