@@ -1,6 +1,6 @@
 %header
 	%h1 Sign in!
-#new_sess_container
+#sess_new_container
 	= form_tag sessions_path do
 		= text_field_tag(:email, params[:email], placeholder: "Email")
 		= password_field_tag(:password, "", placeholder: "Password")

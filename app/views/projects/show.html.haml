@@ -46,7 +46,7 @@
 							= comment.created_at.strftime('%d-%b-%Y at: %T')
 						.commentRating{:"data-score"=> comment.rating}
 						- if comment.user == current_user
-							= link_to project_comment_path(@project, comment) do
+							= link_to edit_project_comment_path(@project, comment) do
 								.commentIcon
 									%i.icon-pencil-1
 					.commentBottom

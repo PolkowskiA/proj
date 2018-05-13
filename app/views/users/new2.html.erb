@@ -3,7 +3,7 @@
 </header>
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
-    <div id="container_new_user">
+    <div id="container_user_new">
       <div class="error_messages">
         <h2> <%= @user.errors.count %> error(s) prohibited this user from being saved:</h2>
           <ul>
@@ -15,7 +15,7 @@
           </ul>
       </div>
   <% end %>
-      <div id="new_sess_container">
+      <div id="sess_new_container">
         <%= f.text_field :name, placeholder: "Name" %>
         <%= f.text_field :email, placeholder: "Email" %>          
         <%= f.password_field :password, placeholder: "Password" %>

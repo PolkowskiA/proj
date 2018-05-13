@@ -35,6 +35,7 @@ gem 'pg'
 gem 'ratyrate'
 gem 'rb-readline'
 gem 'haml', '~> 5.0', '>= 5.0.4'
+gem 'bourbon'
 
 # gem 'will_paginate', '~> 3.1'
 
