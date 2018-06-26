@@ -20,7 +20,7 @@
 								%li
 									= link_to project, method: :delete, data: { confirm: "Project:     '#{project.name}'     will be removed. Are you sure?" } do
 										Delete
-					%div{style: "clear: both;"}
+					%div{style: 'clear: both;'}
 					.project_data
 						Created by #{project.user.name} at: #{ project.created_at.strftime('%Y-%m-%d')}
 		- else

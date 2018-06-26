@@ -2,15 +2,15 @@ class ProjectsController < ApplicationController
 
 	before_action :has_permission?, only: [:edit, :update, :destroy]
 	
-	def index    
-		@projects = Project.all.order(:id).page(params[:page]).per(5)        
+	def index
+		@projects = Project.all.order(:id).page(params[:page]).per(5)
 	end
 
 	def show
-		project      
+		project
 		@avg_rating ||= commentz.blank? ? 0 : commentz.average(:rating).round(2)
 		@comments = @commentz.order("updated_at DESC").page(params[:page]).per(5)
-	end    
+	end
 
 	def new
 		@project = Project.new
@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-	def edit    
+	def edit
 			project
 	end
 
@@ -35,12 +35,12 @@ class ProjectsController < ApplicationController
 		else
 			render :edit
 		end
-	end  
+	end
 
 	def destroy
 		project.destroy
 		redirect_to projects_path, notice: 'Project was successfully destroyed.'
-	end  
+	end
 
 	private
 

@@ -1,57 +1,56 @@
-.headerShowProj
-	.showHeaderTop
+.project_header
+	.project_header_top
 		.title
 			%h1 Title:
 		- if current_user == @project.user
 			= link_to @project, method: :delete, data: {confirm: "Project:   '#{@project.name}'   willbe removed./nAre you sure?"} do
-				.showIcon
+				.project_edit
 					%i.icon-trash
 			= link_to edit_project_path(@project) do
-				.showIcon
+				.project_edit
 					%i.icon-pencil-1
-			%div{style: "clear: both;"}
-	.showName
+	.project_name_show
 		%p= @project.name
 	.star-rating{:"data-score"=> @avg_rating}
 	%em= "#{@avg_rating}/5 of #{@commentz.size} comments"
-	.showHeaderBottom
-		.showBack
+	.project_header_bottom
+		.project_back
 			= link_to 'Back', projects_path
-		.showCreate
+		.project_owner
 			Created by:
 			= @project.user.name
-		%div{style: "clear: both;"}
-.contentShowProj
-	.showImage
+.project_content
+	.project_content_image
 		= image_tag @project.image.url("medium")
-	.showArticle
+	.project_content_article
 		= simple_format(@project.description)
-	%div{style: "clear: both;"}
-.commentsShowProj
-	.commentsHeader
-		.titleComments
+.comments_main_container
+	.comments_header
+		.comments_tilte
 			%h2 Comments
-		.creator#show
+		.comment_creator
 			= link_to new_project_comment_path(@project) do
 				%i.icon-plus-squared
-		%div{style: "clear: both;"}
-	.commentsContent
+	.comments_content
 		- if @comments.present?
 			- @comments.each do |comment|
 				.comment
-					.commentTop
-						.commentAuthor
+					.comment_top
+						.comment_author
 							= comment.user.name
-						.commentTimeStamps
+						.comment_time_stamps
 							= comment.created_at.strftime('%d-%b-%Y at: %T')
-						.commentRating{:"data-score"=> comment.rating}
+						.comment_rating{:"data-score"=> comment.rating}
 						- if comment.user == current_user
+							= link_to project_comment_path(@project, comment), method: :delete, data: { confirm: "Comment will be removed. Are you sure?" } do
+								.comment_edit_icon
+									%i.icon-trash
 							= link_to edit_project_comment_path(@project, comment) do
-								.commentIcon
+								.comment_edit_icon
 									%i.icon-pencil-1
-					.commentBottom
+							
+					.comment_bottom
 						= simple_format(comment.content)
-					%div{style: "clear: both;"}
 		- else
 			Be the first one. Comment Now!
 		= paginate @comments
@@ -63,7 +62,7 @@
 			return $(this).atrr('data-score');
 		}
 	});       
-	$('.commentRating').raty({
+	$('.comment_rating').raty({
 		readOnly: true,
 		path: '/assets',
 		score: function(){

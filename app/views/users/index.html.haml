@@ -1,0 +1,11 @@
+%header
+	%h1 Users
+.users_container
+	- if @users.present?
+		- @users.each do |user|
+			.user_container
+				= user.id
+				= user.name
+				= user.email
+				= link_to user,  method: :delete, data: { confirm: "Project:     '#{user.name}'     will be removed. Are you sure?" } do
+					Delete user

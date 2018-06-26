@@ -2,6 +2,10 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:new, :create]
 
+  def index
+    @users = User.all.order(:name)
+  end
+
   def new
     @user = User.new
   end
@@ -18,6 +22,9 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def is_admin?
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

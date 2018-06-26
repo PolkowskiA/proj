@@ -32,7 +32,6 @@ gem 'rubocop', '~> 0.52.0', require: false
 gem 'rake', '~> 12.3'
 gem "paperclip", "~> 5.2.1"
 gem 'pg'
-gem 'ratyrate'
 gem 'rb-readline'
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'bourbon'
