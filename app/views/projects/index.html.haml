@@ -1,5 +1,9 @@
 %header
 	%h1 Projects
+- if is_admin?
+	.admin_panel
+		= link_to users_path do
+			Admin Panel		
 .main_projects_container
 	.projects_list
 		- if @projects.present?

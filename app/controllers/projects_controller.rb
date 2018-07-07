@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-	before_action :has_permission?, only: [:edit, :update, :destroy]
+	before_action :has_edit_permission?, only: [:edit, :update, :destroy]
 	
 	def index
 		@projects = Project.all.order(:id).page(params[:page]).per(5)
