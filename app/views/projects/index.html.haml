@@ -13,7 +13,7 @@
 						= link_to project.name, project
 					.project_image
 						= image_tag project.image.url("thumb")
-					#starRating{ "data-score" => project.comments.average(:rating)}
+					.star-rating#index{:"data-score"=> project.comments.average(:rating)}				
 					- if project.user == current_user
 						.list
 							%i.icon-list-bullet
@@ -33,11 +33,3 @@
 		= link_to	new_project_path do
 			%i.icon-plus-squared
 = paginate @projects
-:javascript
-	$('#starRating').raty({
-		readOnly: true,
-		path: '/assets/',		
-		score: function(){
-			return $(this).atrr("data-score");
-		}
-	});

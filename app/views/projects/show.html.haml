@@ -54,18 +54,3 @@
 		- else
 			Be the first one. Comment Now!
 		= paginate @comments
-:javascript
-	$('.star-rating').raty({
-		readOnly: true,
-		path: '/assets/',
-		score: function(){
-			return $(this).atrr('data-score');
-		}
-	});       
-	$('.comment_rating').raty({
-		readOnly: true,
-		path: '/assets',
-		score: function(){
-			return $(this).atrr('data-score');
-		}
-	});
