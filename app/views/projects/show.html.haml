@@ -1,0 +1,56 @@
+.project_header
+	.project_header_top
+		.title
+			%h1 Title:
+		- if current_user == @project.user
+			= link_to @project, method: :delete, data: {confirm: "Project:   '#{@project.name}'   willbe removed./nAre you sure?"} do
+				.project_edit
+					%i.icon-trash
+			= link_to edit_project_path(@project) do
+				.project_edit
+					%i.icon-pencil-1
+	.project_name_show
+		%p= @project.name
+	.star-rating{:"data-score"=> @avg_rating}
+	%em= "#{@avg_rating}/5 of #{@commentz.size} comments"
+	.project_header_bottom
+		.project_back
+			= link_to 'Back', projects_path
+		.project_owner
+			Created by:
+			= @project.user.name
+.project_content
+	.project_content_image
+		= image_tag @project.image.url("medium")
+	.project_content_article
+		= simple_format(@project.description)
+.comments_main_container
+	.comments_header
+		.comments_tilte
+			%h2 Comments
+		.comment_creator
+			= link_to new_project_comment_path(@project) do
+				%i.icon-plus-squared
+	.comments_content
+		- if @comments.present?
+			- @comments.each do |comment|
+				.comment
+					.comment_top
+						.comment_author
+							= comment.user.name
+						.comment_time_stamps
+							= comment.created_at.strftime('%d-%b-%Y at: %T')
+						.comment_rating{:"data-score"=> comment.rating}
+						- if comment.user == current_user
+							= link_to project_comment_path(@project, comment), method: :delete, data: { confirm: "Comment will be removed. Are you sure?" } do
+								.comment_edit_icon
+									%i.icon-trash
+							= link_to edit_project_comment_path(@project, comment) do
+								.comment_edit_icon
+									%i.icon-pencil-1
+							
+					.comment_bottom
+						= simple_format(comment.content)
+		- else
+			Be the first one. Comment Now!
+		= paginate @comments

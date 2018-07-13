@@ -1,0 +1,24 @@
+!!!
+%html
+	%head
+		%title Proj
+		= csrf_meta_tags
+		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+	%body
+		#user_nav
+			- if current_user
+				Logged in as
+				%span{ style: "text-decoration: underline;"}= current_user.name
+				= link_to "Log out", log_out_path
+			- else
+				= link_to "Sign up", new_user_path
+				or
+				= link_to "Sign in", new_session_path
+		- flash.each do |name, msg|
+			= content_tag :div, msg, id: "flash_#{name}"
+		= yield
+		%footer 
+			This site was created by
+			%a{ href: "https://github.com/PolkowskiA", target: "_blank"}PolkowskiA
+			\. All rights reserved © 2018

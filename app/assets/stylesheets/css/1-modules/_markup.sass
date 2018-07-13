@@ -1,0 +1,58 @@
+/* Background pattern from Subtle Patterns */
+body  
+	background-image: url("img/wood_1")
+	font-family: 'Lato', sans-serif
+	font-size: 20px
+	color: white
+	text-align: center
+	+margin(0px)
+
+main
+	background-color: grey
+	border-radius: 10px
+	color: black
+	+margin(20px auto 50px)
+	+box-shadow(3px 3px 20px 0px #d5e8b2e6)
+	+size(700px, auto)
+	+padding(30px)
+
+header	
+	+margin(50px null null)
+
+footer
+	background-color: black	
+	margin-top: 15px
+	+padding(25px)
+
+h1
+	font-size: 50px
+	font-family: 'Playfair Display'
+
+a
+	&:visited
+		color: yellow
+	&:link
+		@extend a:visited
+		text-decoration: none
+	&:hover
+		color: red
+		text-decoration: underline
+		cursor: pointer
+	&:active
+		color: #b20000
+
+textarea
+	margin-top: 20px
+	min-width: 60%
+	max-width: 97.1428571%
+	font-size: 15px
+	outline: none
+	border-radius: 10px
+	+padding(10px)
+	color: #666
+	+size(680px, auto)
+	&:focus
+		border: 2px solid lightblue
+		background-color: #f4f9ef
+		color: black
+		+box-shadow(0px 2px 10px 2px #c6ffa0e6)

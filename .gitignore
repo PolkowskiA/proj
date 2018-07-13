@@ -19,4 +19,8 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+# Ignore ruby instalation path
 path/*
+#Ignore vimdiff files
+.gitignore.*
+.gitignore_*

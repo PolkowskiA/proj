@@ -1,0 +1,67 @@
+.comments_main_container
+	background-color: #0D112B
+	width: 80%
+	border: 2px solid lightgrey
+	border-radius: 5px
+	margin: 20px auto 20px auto
+	padding: 20px
+
+.comments_header
+	+clearfix
+
+.comments_title
+	float: left
+	width: 80%
+	text-align: center
+.comment_creator
+		margin: 20px
+		float: right
+		font-size: 32px
+		width: 10%
+		transition: all 0.5s ease-in-out
+		&:hover
+			+transform(scale(1.8))
+
+.comments_content
+
+.comment	
+	text-align: center
+	border-bottom: 1px solid white
+	padding: 15px
+	width: 85%
+	&:first-child
+		border-top: 1px solid white
+
+.comment_top
+	height: 30px
+	text-align: center
+	width: 100%
+	margin-bottom: 15px
+	+clearfix
+
+.comment_author
+	float: left
+	font-size: 13px
+	color: #A87E00
+
+.comment_time_stamps
+	float: left
+	font-size: 10px
+	margin-left: 20px
+	margin-top: 2.5px
+
+.comment_rating
+	float: left
+	margin-left: 200px
+
+.comment_edit_icon
+	float: right
+	margin-left: 10px
+	font-size: 20px
+	transition: all 0.5s ease-in-out
+	&:hover
+		+transform(scale(1.5))
+
+.comment_bottom
+	font-size: 15px
+	text-align: justify

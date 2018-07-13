@@ -1,0 +1,67 @@
+.main_projects_container
+	margin-top: 50px
+	+clearfix
+
+.projects_list
+	background-image: url("img/dark_wood.png")
+	float: left
+	border: 2px solid white
+	border-radius: 20px
+	+size(80%, auto)
+	+margin(null 1% null 4%)
+	+padding(20px)
+
+.project_container
+	border-bottom: 1px ridge lightgrey
+
+.project_name
+	float: left
+	text-align: left
+	font-size: 24px
+	overflow: auto
+	+size(50%, 50px)
+	+margin(20px null null 5%)
+
+.project_image
+	float: left
+	margin-top: 15px
+	font-size: 10px
+	+size(15%, 100%)
+
+.star-rating#index
+	float: left
+	vertical-align: middle
+	font-size: 10px
+	+margin(25px auto 50px 10%)
+
+.list
+	float: right
+	+size(5%, auto)	
+	ul
+		list-style-type: none
+		display: none
+		+margin(0)
+		+padding(0)
+		li
+			position: relative
+			font-size: 18px
+			padding-top: 8px
+			border-bottom: 1px solid white
+	&:hover
+		ul
+			display: block
+
+.project_data	
+	text-align: left
+	font-size: 10px
+	+size(25%, 35px)
+	+margin(20px null null 5%)
+
+.creator
+	width: 5%
+	float: left
+	font-size: 100px
+	color: white	
+
+.icon-plus-squared
+	color: white

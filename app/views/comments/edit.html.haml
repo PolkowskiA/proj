@@ -1,0 +1,22 @@
+%header
+	%h1 Edit Comment
+%main
+	= form_for [@project, @comment], html: { multipart: true } do |f|
+		.label
+			= f.label :Rating
+		#star-rating{"data-score" => @comment.rating}
+		.label
+			= f.label :"content:"
+		.description
+			= f.text_area :content, size: "70x10", placeholder: "Content"
+		= f.submit
+	.Back
+		= link_to 'Cancel', :back
+:javascript
+	$('#star-rating').raty({    
+			path: '/assets/',
+			score: function(){
+				return $(this).atrr('data-score');
+			}, 
+			scoreName: 'comment[rating]'
+		});

@@ -1,0 +1,35 @@
+%header
+	%h1 Projects
+- if is_admin?
+	.admin_panel
+		= link_to users_path do
+			Admin Panel		
+.main_projects_container
+	.projects_list
+		- if @projects.present?
+			- @projects.each do |project|
+				.project_container
+					.project_name
+						= link_to project.name, project
+					.project_image
+						= image_tag project.image.url("thumb")
+					.star-rating#index{:"data-score"=> project.comments.average(:rating)}				
+					- if project.user == current_user
+						.list
+							%i.icon-list-bullet
+							%ul
+								%li
+									= link_to edit_project_path(project) do
+										Edit
+								%li
+									= link_to project, method: :delete, data: { confirm: "Project:     '#{project.name}'     will be removed. Are you sure?" } do
+										Delete
+					%div{style: 'clear: both;'}
+					.project_data
+						Created by #{project.user.name} at: #{ project.created_at.strftime('%Y-%m-%d')}
+		- else
+			Not Project Found
+	.creator
+		= link_to	new_project_path do
+			%i.icon-plus-squared
+= paginate @projects
