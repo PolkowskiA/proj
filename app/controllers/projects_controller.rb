@@ -1,15 +1,16 @@
 class ProjectsController < ApplicationController
 
 	before_action :has_edit_permission?, only: [:edit, :update, :destroy]
+	before_action :project, only: :show
 	
 	def index
 		@projects = Project.all.order(:id).page(params[:page]).per(5)
 	end
 
 	def show
-		project
+		#project
 		@avg_rating ||= commentz.blank? ? 0 : commentz.average(:rating).round(2)
-		@comments = @commentz.order("updated_at DESC").page(params[:page]).per(5)
+		@comments = @commentz.order("updated_at DESC").page(params[:page]).per(5)		
 	end
 
 	def new
@@ -26,7 +27,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def edit
-			project
+		project
 	end
 
 	def update

@@ -21,6 +21,8 @@
 .byebug_history
 # Ignore ruby instalation path
 path/*
-#Ignore vimdiff files
+# Ignore vimdiff files
 .gitignore.*
 .gitignore_*
+# Ignore unit test folder
+/test*

@@ -35,6 +35,7 @@ gem 'pg'
 gem 'rb-readline'
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'bourbon'
+gem 'rspec-rails'
 
 # gem 'will_paginate', '~> 3.1'
 
@@ -44,6 +45,8 @@ gem 'bourbon'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'factory_bot_rails'
+  gem 'ffaker'
 end
 
 group :development do

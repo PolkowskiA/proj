@@ -27,7 +27,17 @@ class UsersController < ApplicationController
 		end
 	end
 
-	private	
+	def destroy
+		# binding.pry
+		user.destroy
+		redirect_to users_path, notice: "You just delete #{user.name}'s account"
+	end
+
+	private
+
+	def user
+		@user ||= User.find(params[:id])
+	end
 
 	def user_params
 		params.require(:user).permit(:name, :email, :password, :password_confirmation)
